@@ -25,4 +25,16 @@ class AssertionsTest {
         assertNotEquals(otherName, assertions.getName())
     }
 
+    @Test
+    fun checkHumanTest(){
+        val assertions = Assertions()
+        val bot = User("8bit", 1, false)
+        val juan = User("Juan", 18, true)
+        assertFalse(assertions.checkHuman(bot))
+        assertTrue(assertions.checkHuman(juan))
+
+        /*Recomendaciones:
+        -) solo una afirmacion en cada prueba
+        -) verificar que las pruebas fallan si se invierte los valores esperados*/
+    }
 }
