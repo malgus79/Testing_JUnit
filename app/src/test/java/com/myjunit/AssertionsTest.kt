@@ -9,7 +9,11 @@ class AssertionsTest {
     fun getArrayTest(){
         val assertions = Assertions()
         val array = arrayOf(35, 115)// valor esperado
-
-        assertArrayEquals(array, assertions.getLuckyNumbers())
+        //val array = arrayOf(35, 11)// valor esperado
+        assertArrayEquals(
+            "mensaje personalizado de error en testing",
+            array,
+            assertions.getLuckyNumbers()
+        )
     }
 }
