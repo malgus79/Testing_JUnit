@@ -51,4 +51,24 @@ class AssertionsTest {
         val juan = User("Juan", 18, true)
         assertNotNull(juan)
     }
+
+    @Test
+    fun checkNotSameUsersTest(){
+        val bot = User("8bit", 1, false)
+        val juan = User("Juan", 18, true)
+        assertNotSame(bot, juan)
+    }
+
+    @Test
+    fun checkSameUsersTest(){
+        val bot = User("Juan", 18, true)
+        val juan = User("Juan", 18, true)
+        val copyJuan = juan
+        /*assertSame(bot, juan)
+        //no pasa la prueba porque se crea una referencia por objeto o instancia de clase
+        //esta afirmacion verifica si realmente se trata del mismo objeto,
+        //que tengan las mismas propiedades no significa que sean el mismo objeto*/
+
+        assertSame(copyJuan, juan)
+    }
 }
