@@ -1,7 +1,6 @@
 package com.myjunit
 
-import org.junit.Assert
-import org.junit.Assert.assertArrayEquals
+import org.junit.Assert.*
 import org.junit.Test
 
 class AssertionsTest {
@@ -16,4 +15,14 @@ class AssertionsTest {
             assertions.getLuckyNumbers()
         )
     }
+
+    @Test
+    fun getNameTest(){
+        val assertions = Assertions()
+        val name = "Matias"
+        val otherName = "Nico"
+        assertEquals(name, assertions.getName())
+        assertNotEquals(otherName, assertions.getName())
+    }
+
 }
