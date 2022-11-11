@@ -37,4 +37,18 @@ class AssertionsTest {
         -) solo una afirmacion en cada prueba
         -) verificar que las pruebas fallan si se invierte los valores esperados*/
     }
+
+    @Test
+    fun checkNullUserTest(){
+        val user = null
+        assertNull(user)
+        val assertions = Assertions()
+        assertNull(assertions.checkHuman(user))
+    }
+
+    @Test
+    fun checkNotNullUserTest(){
+        val juan = User("Juan", 18, true)
+        assertNotNull(juan)
+    }
 }
