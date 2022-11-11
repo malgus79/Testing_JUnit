@@ -1,5 +1,6 @@
 package com.myjunit
 
+import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -15,7 +16,16 @@ class AssertionsUsersTest {
     fun setup(){
         bot = User("8bit", 1, false)
         juan = User("Juan", 18, true)
-        //println("Before")
+        println("Before")
+    }
+
+    //se ejecuta despues de cada prueba
+    //tearDown -> limpiar las variables inicializadas, incluso volverlas null de ser necesario
+    @After
+    fun tearDown(){
+        bot = User()
+        juan = User()
+        println("After")
     }
 
     @Test
@@ -23,10 +33,20 @@ class AssertionsUsersTest {
         val assertions = Assertions()
         assertFalse(assertions.checkHuman(bot))
         assertTrue(assertions.checkHuman(juan))
+        println("checkHuman")
     }
 
     @Test
     fun checkNotNullUserTest(){
         assertNotNull(juan)
+        println("checkNotNullUser")
     }
+
+    /*Con println se ejecutan en le siguiente orden:
+    Before
+    checkHuman
+    After
+    Before
+    checkNotNullUser
+    After*/
 }
