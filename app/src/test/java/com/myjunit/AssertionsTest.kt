@@ -2,6 +2,7 @@ package com.myjunit
 
 import org.junit.Assert.*
 import org.junit.Test
+import kotlin.random.Random
 
 class AssertionsTest {
     @Test
@@ -70,5 +71,14 @@ class AssertionsTest {
         //que tengan las mismas propiedades no significa que sean el mismo objeto*/
 
         assertSame(copyJuan, juan)
+    }
+
+    //limitar el timeout (ejemplo en las peticiones a servidor externo)
+    @Test(timeout = 1_000)
+    fun getCitiesTest(){
+        val cities = arrayOf("México", "Perú", "Argentina")
+        Thread.sleep(Random.nextLong(100, 1_100))
+        //Thread.sleep(Random.nextLong(900, 1_100))
+        assertEquals(3, cities.size)
     }
 }
